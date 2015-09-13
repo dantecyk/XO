@@ -1,7 +1,8 @@
 package xo.model;
 
 import xo.model.exceptions.AlreadyOccupaitedException;
-import xo.model.exceptions.InvalidePointException;
+import xo.model.exceptions.InvalidPointException;
+import xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
 
@@ -17,17 +18,17 @@ public class Field {
         return FIELD_SIZE;
     }
 
-    public Figure getFigure(Point point) throws InvalidePointException{
+    public Figure getFigure(Point point) throws InvalidPointException{
         if (!checkPoint(point)) {
-            throw new InvalidePointException();
+            throw new InvalidPointException();
         }
         return field[point.x][point.y];
     }
 
-    public void setFigure(final Point point, final Figure figure) throws InvalidePointException,
+    public void setFigure(final Point point, final Figure figure) throws InvalidPointException,
                                                                             AlreadyOccupaitedException {
         if (!checkPoint(point)) {
-            throw new InvalidePointException();
+            throw new InvalidPointException();
         }
         if (field[point.x][point.y] != null) {
             throw new AlreadyOccupaitedException();
