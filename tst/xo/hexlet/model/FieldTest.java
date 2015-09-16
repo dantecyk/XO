@@ -1,8 +1,8 @@
-package xo.model;
+package xo.hexlet.model;
 
 import org.junit.Test;
-import xo.model.exceptions.AlreadyOccupitedException;
-import xo.model.exceptions.InvalidPointException;
+import xo.hexlet.model.exceptions.AlreadyOccupitedException;
+import xo.hexlet.model.exceptions.InvalidPointException;
 
 
 import java.awt.*;
@@ -33,20 +33,7 @@ public class FieldTest {
         assertEquals(inputFigure, actualFigure);
     }
 
-    @Test
-    public void testSetFigureWhenAlreadyOccupied() throws Exception {
-        final Field field = new Field();
-        final Point inputPoint = new Point(0, 0);
-        final Figure inputFigure = Figure.O;
-
-        field.setFigure(inputPoint, inputFigure);
-        try {
-            field.setFigure(inputPoint, inputFigure);
-            fail();
-        } catch (final AlreadyOccupitedException e) {}
-    }
-
-    @Test
+      @Test
     public void testGetFigureWhenFigureIsNotSet() throws Exception {
         final Field field = new Field();
         final Point inputPoint = new Point(0,0);
