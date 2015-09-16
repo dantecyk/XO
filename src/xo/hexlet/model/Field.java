@@ -1,8 +1,7 @@
-package xo.model;
+package xo.hexlet.model;
 
-import xo.model.exceptions.AlreadyOccupaitedException;
-import xo.model.exceptions.InvalidPointException;
-import xo.model.exceptions.InvalidPointException;
+import xo.hexlet.model.exceptions.AlreadyOccupitedException;
+import xo.hexlet.model.exceptions.InvalidPointException;
 
 import java.awt.*;
 
@@ -12,26 +11,22 @@ public class Field {
     private static final int MAX_COORDINAT = FIELD_SIZE;
     private static final int MIN_COORDINAT = 0;
 
-    private final Figure [][] field = new Figure[FIELD_SIZE][FIELD_SIZE];
+    private final Figure[][] field = new Figure[FIELD_SIZE][FIELD_SIZE];
 
     public int getSize() {
         return FIELD_SIZE;
     }
 
-    public Figure getFigure(Point point) throws InvalidPointException{
+    public Figure getFigure(Point point) throws InvalidPointException {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
         }
         return field[point.x][point.y];
     }
 
-    public void setFigure(final Point point, final Figure figure) throws InvalidPointException,
-                                                                            AlreadyOccupaitedException {
+    public void setFigure(final Point point, final Figure figure) throws InvalidPointException {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
-        }
-        if (field[point.x][point.y] != null) {
-            throw new AlreadyOccupaitedException();
         }
         field[point.x][point.y] = figure;
     }
